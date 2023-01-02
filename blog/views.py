@@ -18,11 +18,17 @@ class PostMVS(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filterset_fields = ['category']
+    search_fields = ['title']
+    ordering_fields = ['update_date']
     
     
 class CategoryMVS(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [IsAdminUserOrReadOnly]
+    #filterset_fields = ['name']
+    search_fields = ['name']
+    ordering_fields = ['name']
 
 
